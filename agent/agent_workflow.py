@@ -1,4 +1,4 @@
-from langgraph.graph import StateGraph, MessageState, START, END
+from langgraph.graph import StateGraph, MessagesState, START, END
 from langgraph.prebuilt import ToolNode, tools_condition
 
 class GraphBuilder():
