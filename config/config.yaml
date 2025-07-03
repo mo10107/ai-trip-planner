@@ -1,0 +1,7 @@
+llm:
+  together_ai:
+    provider: together_ai
+    model_name: togethercomputer/llama-3.3-70b
+
+
+

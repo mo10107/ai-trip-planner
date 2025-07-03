@@ -14,5 +14,5 @@ langchain_groq
 langchain_openai
 langgraph
 langchain-google-community[places]
-
+langchain-together
 -e .
