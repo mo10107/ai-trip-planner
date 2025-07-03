@@ -3,8 +3,8 @@ from pydantic import BaseModel, Field
 import os
 from langchain_together import ChatTogether
 from dotenv import load_dotenv
+from config_loader import load_config  # Changed to absolute import
 load_dotenv()
-from utils.config_loader import load_config
 
 class ConfigLoader:
     def __init__(self):
@@ -15,7 +15,7 @@ class ConfigLoader:
         return self.config[key]
 
 class ModelLoader(BaseModel):
-    model_provider = Literal["together_ai"]
+    model_provider: Literal["together_ai"] = "together_ai"
     config: Optional[ConfigLoader] = Field(default=None, exclude=True)
 
     def model_post_init(self):

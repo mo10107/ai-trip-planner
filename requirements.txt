@@ -15,4 +15,5 @@ langchain_openai
 langgraph
 langchain-google-community[places]
 langchain-together
+pyyaml
 -e .
