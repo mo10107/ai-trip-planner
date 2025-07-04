@@ -1,4 +1,5 @@
-from fastapi import FastAPI, JsonResponse
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse as JsonResponse
 from fastapi.middleware.cors import CORSMiddleware
 from agent.agent_workflow import GraphBuilder
 import os
@@ -21,7 +22,7 @@ app.add_middleware(
 
 
 class QueryRequest(BaseModel):
-    query: str = Field(..., description="The query to be processed by the agent.")
+    question: str = Field(..., description="The query to be processed by the agent.")
 
 
 @app.post("/query")
@@ -35,7 +36,7 @@ async def process_travel_agent(query: QueryRequest):
             f.write(png_graph)
 
         print(f"Graph saved as graph.png at {os.getcwd()}")
-        messages = {"messages": [query.query]}
+        messages = {"messages": [query.question]}
         response = react_app.invoke(messages)
 
         if isinstance(response, dict) and "messages" in response:

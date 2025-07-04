@@ -3,9 +3,8 @@ from pydantic import BaseModel, Field
 import os
 from langchain_together import ChatTogether
 from dotenv import load_dotenv
-from config_loader import load_config  # Changed to absolute import
 load_dotenv()
-
+from utils.config_loader import load_config
 class ConfigLoader:
     def __init__(self):
         print(f"Loaded config.....")
